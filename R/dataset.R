@@ -1,8 +1,7 @@
-#' The metadata of stock assessment
-#'
-#' @format A list contains fields below:
-#' \describe{
-#'   \item{species}{species name}
-#'   \item{year}{year of the assessment}
-#' }
-"metadata"
+#' Metadata of this report
+#' @export
+metadata <- function() {
+  list(species = "Japanese sardine",
+       stock   = "Pacific",
+       year    = 2019)
+}
