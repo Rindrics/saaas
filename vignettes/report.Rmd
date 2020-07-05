@@ -18,6 +18,11 @@ knitr::opts_chunk$set(
 library(saaas)
 ```
 
-```{r}
-metadata()
+```{r assessment}
+data <- "data1.csv"
+
+data %>%
+  system.file("extdata", ., package = "saaas") %>%
+  read.csv() %>%
+  plot()
 ```
