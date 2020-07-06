@@ -6,6 +6,9 @@
 \usage{
 calculate(catchdata)
 }
+\arguments{
+\item{catchdata}{Catch data}
+}
 \description{
 Ultra great function to calculate stock abundance from catch data
 }

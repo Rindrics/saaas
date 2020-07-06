@@ -2,10 +2,10 @@
 % Please edit documentation in R/dataset.R
 \name{metadata}
 \alias{metadata}
-\title{Metadata of stock assessment}
+\title{Metadata of this report}
 \usage{
 metadata()
 }
 \description{
-Metadata of stock assessment
+Metadata of this report
 }
