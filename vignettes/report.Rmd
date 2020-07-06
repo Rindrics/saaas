@@ -26,8 +26,10 @@ catch %>%
   plot(type = "l")
 ```
 
-data %>%
+```{r}
+catch %>%
   system.file("extdata", ., package = "saaas") %>%
   read.csv() %>%
-  plot()
+  calculate() %>%
+  plot(type = "l")
 ```
