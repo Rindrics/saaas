@@ -39,7 +39,7 @@ jobs:
         run: R CMD INSTALL .
 
       - name: Upload asssessment results
-        uses: actions/uplead-artifact@@v2
+        uses: actions/uplead-artifact@v2
         with:
           name: Result
           path: vignettes/dummy.csv
