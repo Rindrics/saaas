@@ -16,8 +16,20 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(saaas)
+catch <- "catch.csv"
 ```
 
 ```{r}
-metadata()
+catch %>%
+  system.file("extdata", ., package = "saaas") %>%
+  read.csv() %>%
+  plot(type = "l")
+```
+
+```{r}
+catch %>%
+  system.file("extdata", ., package = "saaas") %>%
+  read.csv() %>%
+  calculate() %>%
+  plot(type = "l")
 ```
