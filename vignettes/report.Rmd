@@ -34,4 +34,8 @@ catch %>%
   ggplot(aes(Year, Abundance, color = Type)) +
   geom_line()
 ```
+
+```{r}
+dummy_artifact <- data.frame(foo = 1:10, bar = 11:20)
+write.csv(dummy_artifact, "dummy.csv")
 ```

@@ -38,6 +38,12 @@ jobs:
       - name: Install package
         run: R CMD INSTALL .
 
+      - name: Upload asssessment results
+        uses: actions/uplead-artifact@@v2
+        with:
+          name: Result
+          path: vignettes/dummy.csv
+
       - name: Deploy package
         run: pkgdown::deploy_to_branch(new_process = FALSE)
         shell: Rscript {0}
