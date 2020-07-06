@@ -75,7 +75,10 @@ jobs:
           path: check
 
       - name: Upload asssessment results
-        uses: actions/upload-artifact@v2
-        with:
-          name: Result
-          path: vignettes/dummy.csv
+        run: |
+          pwd
+          ls -a
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: Result
+#          path: vignettes/dummy.csv
