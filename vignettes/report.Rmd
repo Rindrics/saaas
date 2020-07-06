@@ -15,23 +15,19 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(saaas)
+devtools::load_all()
 ```
 
 ## Detasets
 ```{r}
-catch <- "catch.csv"
+catch <- load_data("../inst/extdata/catch.csv")
 catch %>%
-  system.file("extdata", ., package = "saaas") %>%
-  read.csv() %>%
   plot(type = "l")
 ```
 
 ## Assessment
 ```{r}
 catch %>%
-  system.file("extdata", ., package = "saaas") %>%
-  read.csv() %>%
   calculate(coef = 2) %>%
   plot(type = "l")
 ```
