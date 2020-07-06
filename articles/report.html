@@ -84,18 +84,23 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">saaas</span>)
+<span class="kw">catch</span> <span class="op">&lt;-</span> <span class="st">"catch.csv"</span>
 </pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="../reference/metadata.html">metadata</a></span>()
-<span class="co">#&gt; $species</span>
-<span class="co">#&gt; [1] "Japanese sardine"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $stock</span>
-<span class="co">#&gt; [1] "Pacific"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $year</span>
-<span class="co">#&gt; [1] 2019</span>
+<span class="kw">catch</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, <span class="kw">.</span>, package = <span class="st">"saaas"</span>) <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span>() <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>(type = <span class="st">"l"</span>)
 </pre></div>
+<p><img src="report_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="kw">catch</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, <span class="kw">.</span>, package = <span class="st">"saaas"</span>) <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span>() <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/calculate.html">calculate</a></span>() <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>(type = <span class="st">"l"</span>)
+</pre></div>
+<p><img src="report_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
