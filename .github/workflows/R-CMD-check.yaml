@@ -73,3 +73,9 @@ jobs:
         with:
           name: ${{ runner.os }}-r${{ matrix.config.r }}-results
           path: check
+
+      - name: Upload asssessment results
+        uses: actions/uplead-artifact@v2
+        with:
+          name: Result
+          path: vignettes/dummy.csv
