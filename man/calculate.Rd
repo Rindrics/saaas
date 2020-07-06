@@ -4,10 +4,12 @@
 \alias{calculate}
 \title{Ultra great function to calculate stock abundance from catch data}
 \usage{
-calculate(catchdata)
+calculate(catchdata, coef)
 }
 \arguments{
 \item{catchdata}{Catch data}
+
+\item{coef}{Mulitiplication coefficient (dummy calculation)}
 }
 \description{
 Ultra great function to calculate stock abundance from catch data
