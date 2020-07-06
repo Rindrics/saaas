@@ -28,6 +28,9 @@ catch %>%
 ## Assessment
 ```{r}
 catch %>%
-  calculate(coef = 2) %>%
-  plot(type = "l")
+  assess(coef = 2) %>%
+  project(n = 10) %>%
+  ggplot(aes(Year, Abundance, color = Type)) +
+  geom_line()
+```
 ```
