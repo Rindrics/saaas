@@ -26,7 +26,7 @@ catch %>%
   plot(type = "l")
 ```
 
-## Assessment
+## Assessment & future projection
 ```{r}
 catch %>%
   assess(coef = 2) %>%
