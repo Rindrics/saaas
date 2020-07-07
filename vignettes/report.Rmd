@@ -5,6 +5,9 @@ vignette: >
   %\VignetteIndexEntry{report}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+rmd_output_metadata:
+  rsc_output_files:
+    - "dummy.csv"
 ---
 
 ```{r, include = FALSE}
