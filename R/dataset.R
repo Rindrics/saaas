@@ -3,5 +3,5 @@
 metadata <- function() {
   list(species = "Japanese sardine",
        stock   = "Pacific",
-       year    = 2019)
+       year    = 2020)
 }
