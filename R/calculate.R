@@ -3,8 +3,8 @@
 #' @param catchdata Catch data
 #' @param coef Mulitiplication coefficient (dummy calculation)
 #' @export
-assess <- function(catchdata, coef, metadata) {
-  test_catchdata(catchdata, metadata)
+assess <- function(catchdata, coef) {
+  test_catchdata(catchdata, metadata())
 
   data.frame(Year = catchdata$Year,
              Abundance = catchdata$Catch * coef,
