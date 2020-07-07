@@ -29,7 +29,7 @@ catch %>%
 ## Assessment & future projection
 ```{r}
 catch %>%
-  assess(coef = 2) %>%
+  assess(coef = 2, metadata = metadata()) %>%
   project(n = 10) %>%
   ggplot(aes(Year, Abundance, color = Type)) +
   geom_line()

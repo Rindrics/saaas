@@ -3,10 +3,9 @@
 #' @param catchdata Catch data
 #' @param coef Mulitiplication coefficient (dummy calculation)
 #' @export
-assess <- function(catchdata, coef) {
-  assertthat::assert_that(
-    assertthat::has_name(catchdata, c("Year", "Catch"))
-  )
+assess <- function(catchdata, coef, metadata) {
+  test_catchdata(catchdata, metadata)
+
   data.frame(Year = catchdata$Year,
              Abundance = catchdata$Catch * coef,
              Type = "Assessed")
