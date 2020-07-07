@@ -36,7 +36,7 @@ jobs:
         run: R CMD INSTALL .
 
       - name: Render Rmd
-        run: rmarkdown::render("vignettes/report.Rmd", new_process = FALSE)
+        run: rmarkdown::render("vignettes/report.Rmd")
         shell: Rscript {0}
 
       - name: Upload asssessment results
