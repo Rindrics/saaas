@@ -40,9 +40,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Upload asssessment results
-        run: |
-          ls -aFR vignettes
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: Result
-#          path: vignettes/dummy.csv
+        uses: actions/upload-artifact@v2
+        with:
+          name: Result
+          path: vignettes/dummy.csv
