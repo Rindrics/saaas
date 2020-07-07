@@ -74,10 +74,3 @@ jobs:
           name: ${{ runner.os }}-r${{ matrix.config.r }}-results
           path: check
 
-      - name: Upload asssessment results
-        run: |
-          ls -aFR check
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: Result
-#          path: vignettes/dummy.csv
