@@ -76,7 +76,8 @@ jobs:
 
       - name: Upload asssessment results
         run: |
-          ls -a vignettes
+          ls -a check
+          ls -a check/vignettes
 #        uses: actions/upload-artifact@v2
 #        with:
 #          name: Result
