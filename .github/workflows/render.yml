@@ -4,7 +4,7 @@ on:
 name: render-Rmd
 
 jobs:
-  pkgdown:
+  render:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v2
