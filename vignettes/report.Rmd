@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 devtools::load_all()
+library(ggplot2)
 ```
 
 ## Detasets
@@ -25,9 +26,16 @@ catch %>%
   plot(type = "l")
 ```
 
-## Assessment
+## Assessment & future projection
 ```{r}
 catch %>%
-  calculate(coef = 2) %>%
-  plot(type = "l")
+  assess(coef = 2) %>%
+  project(n = 10) %>%
+  ggplot(aes(Year, Abundance, color = Type)) +
+  geom_line()
+```
+
+```{r}
+dummy_artifact <- data.frame(foo = 1:10, bar = 11:20)
+write.csv(dummy_artifact, "dummy.csv")
 ```
