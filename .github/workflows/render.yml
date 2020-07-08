@@ -50,5 +50,4 @@ jobs:
         env:
           S3_UPLOAD_BUCKET: ${{ secrets.AWS_BUCKET }}
         run: |
-          ls -aFR
-          aws s3 cp /Users/runner/work/saaas/saaas/vignettes/dummy.csv s3://$S3_UPLOAD_BUCKET/ --quiet
+          aws s3 cp ./vignettes/dummy.csv s3://$S3_UPLOAD_BUCKET/
