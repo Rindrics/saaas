@@ -71,13 +71,43 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
+
+<p>EXPERIMENTAL</p>
 <div id="stock-assessment-as-a-softare" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#stock-assessment-as-a-softare" class="anchor"></a>Stock assessment as a Softare</h1></div>
-<p>Demonstrates how to implement stock assessment as reproducible software</p>
-<p>Still under developing</p>
+<p>Demonstrates how to implement stock assessment itself as reproducible software</p>
+<p>This technique is effective not only for reproducibility, but also formalize our work,</p>
 <p>Sample report can be seen <a href="https://rindrics.github.io/saaas/articles/report.html">here</a></p>
 </div>
+<div id="how-to-update-assessment" class="section level1">
+<h1 class="hasAnchor">
+<a href="#how-to-update-assessment" class="anchor"></a>How to update assessment</h1>
+<div id="confirm-build-passing" class="section level2">
+<h2 class="hasAnchor">
+<a href="#confirm-build-passing" class="anchor"></a>Confirm build passing</h2>
+<p>Run <code><a href="https://devtools.r-lib.org//reference/test.html">devtools::test()</a></code> to confirm the letest version (i.e. assessment conducted in the previous year) works as intended <span class="emoji" data-emoji="white_check_mark">✅</span></p>
+</div>
+<div id="update-test-to-break-build" class="section level2">
+<h2 class="hasAnchor">
+<a href="#update-test-to-break-build" class="anchor"></a>Update test to break build</h2>
+<p>Every work starts from issues. Although the build success is a good news for scientist developed the latest version, but not for you—you have to break build to start your work.</p>
+<p>If you are about to start stock assessment in 2021, the test case in <code>tests/testthat/test-overall.R</code> does not match current status.</p>
+<ul>
+<li>Update the year of test from <code>2020</code> to <code>2021</code>
+</li>
+<li>Run <code><a href="https://devtools.r-lib.org//reference/test.html">devtools::test()</a></code> again</li>
+<li>Build fails and your work starts <span class="emoji" data-emoji="tada">🎉</span>
+</li>
+</ul>
+</div>
+<div id="journey-to-fix-build" class="section level2">
+<h2 class="hasAnchor">
+<a href="#journey-to-fix-build" class="anchor"></a>Journey to fix build</h2>
+<p>What does the build error says?</p>
+</div>
+</div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

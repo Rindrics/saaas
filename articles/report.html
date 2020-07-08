@@ -85,6 +85,7 @@
 <div class="sourceCode" id="cb1"><pre class="downlit">
 <span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/load_all.html">load_all</a></span>()
 <span class="co">#&gt; Loading saaas</span>
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span>)
 </pre></div>
 <div id="detasets" class="section level2">
 <h2 class="hasAnchor">
@@ -96,15 +97,21 @@
 </pre></div>
 <p><img src="report_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
 </div>
-<div id="assessment" class="section level2">
+<div id="assessment-future-projection" class="section level2">
 <h2 class="hasAnchor">
-<a href="#assessment" class="anchor"></a>Assessment</h2>
+<a href="#assessment-future-projection" class="anchor"></a>Assessment &amp; future projection</h2>
 <div class="sourceCode" id="cb3"><pre class="downlit">
 <span class="kw">catch</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="../reference/calculate.html">calculate</a></span>(coef = <span class="fl">2</span>) <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>(type = <span class="st">"l"</span>)
+  <span class="fu"><a href="../reference/assess.html">assess</a></span>(coef = <span class="fl">2</span>) <span class="op">%&gt;%</span>
+  <span class="fu">project</span>(n = <span class="fl">10</span>) <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">Year</span>, <span class="kw">Abundance</span>, color = <span class="kw">Type</span>)) <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>()
 </pre></div>
 <p><img src="report_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="kw">dummy_artifact</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(foo = <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, bar = <span class="fl">11</span><span class="op">:</span><span class="fl">20</span>)
+<span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span>(<span class="kw">dummy_artifact</span>, <span class="st">"dummy.csv"</span>)
+</pre></div>
 </div>
   </div>
 
