@@ -48,6 +48,7 @@ jobs:
 
       - name: Upload file to S3
         env:
-          S3_UPLOAD_BUCKET: ${{ secrets.AWS_BUCKET }}/${{GITHUB_REF##*/}}
+          S3_UPLOAD_BUCKET: ${{ secrets.AWS_BUCKET }}
+          BRANCH_NAME: ${{GITHUB_REF##*/}}
         run: |
-          aws s3 cp ./vignettes/dummy.csv s3://$S3_UPLOAD_BUCKET/
+          aws s3 cp ./vignettes/dummy.csv s3://$S3_UPLOAD_BUCKET/$BRANCH_NAME/
