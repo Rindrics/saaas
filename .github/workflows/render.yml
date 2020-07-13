@@ -50,4 +50,4 @@ jobs:
         env:
           S3_UPLOAD_BUCKET: ${{ secrets.AWS_BUCKET }}
         run: |
-          aws s3 cp ./vignettes/dummy.csv s3://$S3_UPLOAD_BUCKET/
+          aws s3 cp ./vignettes/dummy.csv s3://$S3_UPLOAD_BUCKET/${GITHUB_REF##*/}
