@@ -5,9 +5,6 @@ vignette: >
   %\VignetteIndexEntry{report}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-pkgdown:
-  as_is: true
-  extension: pdf
 ---
 
 ```{r, include = FALSE}
