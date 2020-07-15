@@ -14,7 +14,8 @@ assess <- function(catchdata, coef, variable) {
                Type = "Assessed")
   }
   ssb_ <- function() {
-    value <- biomass_()$Abundance * 0.6
+    maturation_rate <- 0.6
+    value <- biomass_()$Abundance * maturation_rate
     data.frame(Year = catchdata$Year,
                Variable = "SSB",
                Abundance = value,

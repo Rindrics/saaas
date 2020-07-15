@@ -29,7 +29,8 @@ catch %>%
 
 ## Assessment & future projection
 ```{r}
-assess_and_project(catch) %T>%
+assess_and_project(catch) %>%
+  filter_method() %T>%
   write.csv("result.csv") %>%
   ggplot(aes(Year, Abundance, color = Type)) +
   geom_line() +
