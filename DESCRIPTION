@@ -23,4 +23,7 @@ Imports:
     magrittr,
     assertthat,
     stringr,
-    ggplot2
+    ggplot2,
+    dplyr,
+    purrr,
+    forecast

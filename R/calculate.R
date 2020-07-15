@@ -2,7 +2,7 @@
 #'
 #' @param catchdata Catch data
 #' @param coef Mulitiplication coefficient (dummy calculation)
-#' @export
+#' @param variable Variable to return
 assess <- function(catchdata, coef, variable) {
   test_catchdata(catchdata, metadata())
 

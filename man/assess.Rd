@@ -4,12 +4,14 @@
 \alias{assess}
 \title{Ultra great function to calculate stock abundance from catch data}
 \usage{
-assess(catchdata, coef)
+assess(catchdata, coef, variable)
 }
 \arguments{
 \item{catchdata}{Catch data}
 
 \item{coef}{Mulitiplication coefficient (dummy calculation)}
+
+\item{variable}{Variable to return}
 }
 \description{
 Ultra great function to calculate stock abundance from catch data
