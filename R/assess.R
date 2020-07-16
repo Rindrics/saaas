@@ -29,11 +29,15 @@ diagnose <- function(result) {
   test_effect_of("waa")
   frasyr::do_retrospective_vpa(result)$graph
 
-  class(result) <- c("assess")
+  class(result) <- c("assess", class(result))
 
   force(result)
 }
 
+#' Plot assessment result
+#'
+#' @param x VPA result passedfrom \code{diagnose()}
+#' @export
 plot.assess <- function(x) {
   x %>%
     frasyr::convert_vpa_tibble() %>%
