@@ -19,11 +19,8 @@ devtools::load_all()
 library(ggplot2)
 ```
 
-## Detasets
-```{r}
-(load_data() %>% frasyr::vpa())
-```
-
 ## Assessment & future projection
 ```{r}
+assess(method = "vpa") %>%
+  plot()
 ```

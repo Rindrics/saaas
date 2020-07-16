@@ -26,4 +26,7 @@ Imports:
     ggplot2,
     dplyr,
     purrr,
-    forecast
+    forecast,
+    frasyr (>= 2.1.0.0)
+Remotes:
+    ichimomo/frasyr
