@@ -21,8 +21,7 @@ library(ggplot2)
 
 ## Detasets
 ```{r}
-dat <- load_data()
-dat
+(load_data() %>% frasyr::vpa())
 ```
 
 ## Assessment & future projection

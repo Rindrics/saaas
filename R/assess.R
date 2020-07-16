@@ -7,3 +7,7 @@ load_data <- function() {
                        maa = read_csv_("maturity_at_age.csv"),
                        M   = 0.4)
 }
+assess <- function() {
+  load_data() %>%
+    vpa()
+}
