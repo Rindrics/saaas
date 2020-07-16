@@ -16,7 +16,6 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 devtools::load_all()
-library(ggplot2)
 ```
 
 ## Assessment & future projection
