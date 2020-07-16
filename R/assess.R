@@ -34,12 +34,11 @@ diagnose <- function(result) {
   force(result)
 }
 
-#' @importFrom utils write.csv
 plot.assess <- function(x) {
   x %>%
     frasyr::convert_vpa_tibble() %>%
     dplyr::filter(!is.na(age), stat == "fish_number") %T>%
-    write.csv("result.csv", row.names = FALSE) %>%
+    utils::write.csv("result.csv", row.names = FALSE) %>%
     ggplot2::ggplot(ggplot2::aes(year, value,
                                  group = age,
                                  shape = factor(age),
