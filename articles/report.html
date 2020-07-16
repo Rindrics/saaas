@@ -85,6 +85,9 @@
 <div class="sourceCode" id="cb1"><pre class="downlit">
 <span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/load_all.html">load_all</a></span>()
 <span class="co">#&gt; Loading saaas</span>
+<span class="co">#&gt; Registered S3 method overwritten by 'quantmod':</span>
+<span class="co">#&gt;   method            from</span>
+<span class="co">#&gt;   as.zoo.data.frame zoo</span>
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span>)
 </pre></div>
 <div id="detasets" class="section level2">
@@ -93,7 +96,8 @@
 <div class="sourceCode" id="cb2"><pre class="downlit">
 <span class="kw">catch</span> <span class="op">&lt;-</span> <span class="fu">load_data</span>(<span class="st">"../inst/extdata/catch.csv"</span>)
 <span class="kw">catch</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>(type = <span class="st">"l"</span>)
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">Year</span>, <span class="kw">Catch</span>)) <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>()
 </pre></div>
 <p><img src="report_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
 </div>
@@ -101,12 +105,14 @@
 <h2 class="hasAnchor">
 <a href="#assessment-future-projection" class="anchor"></a>Assessment &amp; future projection</h2>
 <div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="kw">catch</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="../reference/assess.html">assess</a></span>(coef = <span class="fl">2</span>) <span class="op">%&gt;%</span>
-  <span class="fu">project</span>(n = <span class="fl">10</span>) <span class="op">%T&gt;%</span>
+<span class="fu">assess_and_project</span>(<span class="kw">catch</span>) <span class="op">%&gt;%</span>
+  <span class="fu">filter_method</span>() <span class="op">%T&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span>(<span class="st">"result.csv"</span>) <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">Year</span>, <span class="kw">Abundance</span>, color = <span class="kw">Type</span>)) <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>()
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_ribbon.html">geom_ribbon</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(ymin = <span class="kw">Lower</span>, ymax = <span class="kw">Upper</span>),
+              color = <span class="fl">FALSE</span>, fill = <span class="fu"><a href="https://rdrr.io/r/grDevices/hsv.html">hsv</a></span>(<span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0.2</span>)) <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span>(<span class="kw">Variable</span> <span class="op">~</span> <span class="kw">Method</span>, scale = <span class="st">"free_y"</span>)
 </pre></div>
 <p><img src="report_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
 </div>
