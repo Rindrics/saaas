@@ -21,6 +21,8 @@ library(ggplot2)
 
 ## Assessment & future projection
 ```{r}
-assess(method = "vpa") %>%
+load_data() %>%
+  calculate(method = "vpa") %>%
+  diagnose() %>%
   plot()
 ```

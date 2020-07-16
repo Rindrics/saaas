@@ -1,13 +1,3 @@
-assess <- function(method) {
-  result <- load_data() %>%
-    calculate(method) %>%
-    diagnose()
-
-  class(result) <- c("assess")
-
-  force(result)
-}
-
 load_data <- function() {
   read_ <- function(fname) {
     utils::read.csv(system.file("extdata", fname, package = "saaas"), row.names = 1)
@@ -38,14 +28,22 @@ diagnose <- function(result) {
   test_effect_of("M")
   test_effect_of("waa")
   frasyr::do_retrospective_vpa(result)$graph
+
+  class(result) <- c("assess")
+
   force(result)
 }
 
+#' @importFrom utils write.csv
 plot.assess <- function(x) {
   x %>%
     frasyr::convert_vpa_tibble() %>%
-    dplyr::filter(!is.na(age), stat == "fish_number") %>%
-    ggplot2::ggplot(ggplot2::aes(year, value, group = age, shape = factor(age))) +
+    dplyr::filter(!is.na(age), stat == "fish_number") %T>%
+    write.csv("result.csv", row.names = FALSE) %>%
+    ggplot2::ggplot(ggplot2::aes(year, value,
+                                 group = age,
+                                 shape = factor(age),
+                                 color = factor(age))) +
     ggplot2::geom_line() +
     ggplot2::geom_point() 
 }
