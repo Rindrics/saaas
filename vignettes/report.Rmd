@@ -21,6 +21,8 @@ library(ggplot2)
 
 ## Detasets
 ```{r}
+dat <- load_data()
+dat
 ```
 
 ## Assessment & future projection
