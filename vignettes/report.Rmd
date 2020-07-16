@@ -21,20 +21,8 @@ library(ggplot2)
 
 ## Detasets
 ```{r}
-catch <- load_data("../inst/extdata/catch.csv")
-catch %>%
-  ggplot(aes(Year, Catch)) +
-  geom_line()
 ```
 
 ## Assessment & future projection
 ```{r}
-assess_and_project(catch) %>%
-  filter_method() %T>%
-  write.csv("result.csv") %>%
-  ggplot(aes(Year, Abundance, color = Type)) +
-  geom_line() +
-  geom_ribbon(aes(ymin = Lower, ymax = Upper),
-              color = FALSE, fill = hsv(0, 0, 0, 0.2)) +
-  facet_grid(Variable ~ Method, scale = "free_y")
 ```
