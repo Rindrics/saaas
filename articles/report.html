@@ -88,33 +88,32 @@
 <span class="co">#&gt; Registered S3 method overwritten by 'quantmod':</span>
 <span class="co">#&gt;   method            from</span>
 <span class="co">#&gt;   as.zoo.data.frame zoo</span>
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span>)
+<span class="co">#&gt; Warning: replacing previous import 'magrittr::set_names' by 'purrr::set_names'</span>
+<span class="co">#&gt; when loading 'frasyr'</span>
+<span class="co">#&gt; Warning: replacing previous import 'EnvStats::qpareto' by 'rmutil::qpareto' when</span>
+<span class="co">#&gt; loading 'frasyr'</span>
+<span class="co">#&gt; Warning: replacing previous import 'EnvStats::ppareto' by 'rmutil::ppareto' when</span>
+<span class="co">#&gt; loading 'frasyr'</span>
+<span class="co">#&gt; Warning: replacing previous import 'EnvStats::rpareto' by 'rmutil::rpareto' when</span>
+<span class="co">#&gt; loading 'frasyr'</span>
+<span class="co">#&gt; Warning: replacing previous import 'EnvStats::dpareto' by 'rmutil::dpareto' when</span>
+<span class="co">#&gt; loading 'frasyr'</span>
+<span class="co">#&gt; Warning: replacing previous import 'rmutil::nesting' by 'tidyr::nesting' when</span>
+<span class="co">#&gt; loading 'frasyr'</span>
+<span class="co">#&gt; Warning: replacing previous import 'magrittr::extract' by 'tidyr::extract' when</span>
+<span class="co">#&gt; loading 'frasyr'</span>
 </pre></div>
-<div id="detasets" class="section level2">
-<h2 class="hasAnchor">
-<a href="#detasets" class="anchor"></a>Detasets</h2>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="kw">catch</span> <span class="op">&lt;-</span> <span class="fu">load_data</span>(<span class="st">"../inst/extdata/catch.csv"</span>)
-<span class="kw">catch</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">Year</span>, <span class="kw">Catch</span>)) <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>()
-</pre></div>
-<p><img src="report_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
-</div>
 <div id="assessment-future-projection" class="section level2">
 <h2 class="hasAnchor">
 <a href="#assessment-future-projection" class="anchor"></a>Assessment &amp; future projection</h2>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="fu">assess_and_project</span>(<span class="kw">catch</span>) <span class="op">%&gt;%</span>
-  <span class="fu">filter_method</span>() <span class="op">%T&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span>(<span class="st">"result.csv"</span>) <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">Year</span>, <span class="kw">Abundance</span>, color = <span class="kw">Type</span>)) <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_ribbon.html">geom_ribbon</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(ymin = <span class="kw">Lower</span>, ymax = <span class="kw">Upper</span>),
-              color = <span class="fl">FALSE</span>, fill = <span class="fu"><a href="https://rdrr.io/r/grDevices/hsv.html">hsv</a></span>(<span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0.2</span>)) <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span>(<span class="kw">Variable</span> <span class="op">~</span> <span class="kw">Method</span>, scale = <span class="st">"free_y"</span>)
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu">load_data</span>() <span class="op">%&gt;%</span>
+  <span class="fu">calculate</span>(method = <span class="st">"vpa"</span>) <span class="op">%&gt;%</span>
+  <span class="fu">diagnose</span>() <span class="op">%&gt;%</span>
+  <span class="fu">visualize</span>()
+<span class="co">#&gt; Joining, by = "index"</span>
 </pre></div>
-<p><img src="report_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
 </div>
   </div>
 
