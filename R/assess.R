@@ -34,7 +34,7 @@ diagnose <- function(result) {
   force(result)
 }
 
-visualize() <- function(x) {
+visualize <- function(x) {
   x %>%
     frasyr::convert_vpa_tibble() %>%
     dplyr::filter(!is.na(age), stat == "fish_number") %T>%
