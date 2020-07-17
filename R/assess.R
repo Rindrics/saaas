@@ -34,10 +34,6 @@ diagnose <- function(result) {
   force(result)
 }
 
-#' Plot assessment result
-#'
-#' @param x VPA result passedfrom \code{diagnose()}
-#' @export
 plot.assess <- function(x) {
   x %>%
     frasyr::convert_vpa_tibble() %>%
