@@ -23,5 +23,5 @@ devtools::load_all()
 load_data() %>%
   calculate(method = "vpa") %>%
   diagnose() %>%
-  plot()
+  visualize()
 ```
