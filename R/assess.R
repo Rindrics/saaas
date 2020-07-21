@@ -29,8 +29,6 @@ diagnose <- function(result) {
   test_effect_of("waa")
   frasyr::do_retrospective_vpa(result)$graph
 
-  class(result) <- c("assess", class(result))
-
   force(result)
 }
 
