@@ -34,15 +34,37 @@ diagnose <- function(result) {
   force(result)
 }
 
-visualize <- function(x) {
-  x %>%
+visualize <- function(x, compare_with = NULL) {
+  result <- x %>%
     frasyr::convert_vpa_tibble() %>%
-    dplyr::filter(!is.na(age), stat == "fish_number") %T>%
-    utils::write.csv("result.csv", row.names = FALSE) %>%
-    ggplot2::ggplot(ggplot2::aes(year, value,
+    dplyr::filter(!is.na(age), stat == "fish_number")
+  utils::write.csv(result, file = "result.csv", row.names = FALSE)
+
+  do_comparison <- !is.null(compare_with)
+  if (do_comparison) {
+    result %>%
+      dplyr::mutate(Name = "this_version") %>%
+      dplyr::bind_rows(purrr::map_df(compare_with, load_branch_file, filename = "result.csv")) %>%
+      dplyr::filter(stat == "fish_number") %>%
+      ggplot2::ggplot(ggplot2::aes(year, value,
+                                   group = Name,
+                                   color = factor(Name))) +
+      ggplot2::geom_line() +
+      ggplot2::facet_wrap(~ age)
+  } else {
+    ggplot2::ggplot(result,
+                    ggplot2::aes(year, value,
                                  group = age,
                                  shape = factor(age),
                                  color = factor(age))) +
     ggplot2::geom_line() +
     ggplot2::geom_point() 
+  }
+
+}
+
+load_branch_file <- function(branch, filename) {
+  url_head <- "https://stock-assessment-as-a-software.s3-ap-northeast-1.amazonaws.com/"
+  read.csv(paste0(url_head, branch, "/", filename)) %>%
+  dplyr::mutate(Name = branch)
 }
