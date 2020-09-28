@@ -2,6 +2,6 @@
 #' @export
 metadata <- function() {
   list(species = "Japanese sardine",
-       stock   = "Pacific",
-       year    = 2020)
+       stock   = "Dummy",
+       year    = 2018)
 }
