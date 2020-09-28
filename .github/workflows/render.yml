@@ -51,3 +51,4 @@ jobs:
           S3_UPLOAD_BUCKET: ${{ secrets.AWS_BUCKET }}
         run: |
           aws s3 cp ./vignettes/result.csv s3://$S3_UPLOAD_BUCKET/${GITHUB_REF##*/}/
+          aws s3 cp ./vignettes/report.html s3://$S3_UPLOAD_BUCKET/${GITHUB_REF##*/}/

@@ -18,10 +18,10 @@ knitr::opts_chunk$set(
 devtools::load_all()
 ```
 
-## Assessment & future projection
+## Assessment
 ```{r}
 load_data() %>%
   calculate(method = "vpa") %>%
   diagnose() %>%
-  visualize()
+  visualize(compare_with = c("master"))
 ```
