@@ -1,13 +1,14 @@
 Package: saaas
-Title: What the Package Does (One Line, Title Case)
+Title: Stock Assessment as a Softawe
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Akira",
+           family = "Hayashi",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "akira.hayashi.1987@gmail.com",
+           comment = c(ORCID = "0000-0002-9709-1919"))
+Description: Explains how to package the whole stock assessment project.
+    Packaging makes assessment project reproducible and comprehensible.
 Depends: R (>= 2.10)
 License: MIT + file LICENSE
 Encoding: UTF-8
