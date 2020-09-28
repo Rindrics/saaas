@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/276816213.svg)](https://zenodo.org/badge/latestdoi/276816213)
+
 EXPERIMENTAL
 
 # Stock assessment as a Softare
