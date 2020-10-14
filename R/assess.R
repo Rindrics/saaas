@@ -11,8 +11,8 @@ load_data <- function() {
 calculate <- function(dat, method) {
   if (method == "vpa") {
     frasyr::vpa(dat,
-                fc.year = fcurrent_years(),
-                tf.year = terminal_f_years(),
+                fc.year = fcurrent_years(year = 2018),
+                tf.year = terminal_f_years(year = 2018),
                 term.F  = "max",
                 stat.tf = "mean",
                 Pope    = TRUE,
@@ -32,10 +32,11 @@ diagnose <- function(result) {
   force(result)
 }
 
-visualize <- function(x) {
-  x %>%
+visualize <- function(result) {
+  browser()
+  result %>%
     frasyr::convert_vpa_tibble() %>%
-    dplyr::filter(!is.na(age), stat == "fish_number") %T>%
+    dplyr::filter(!is.na(age), stat == "biomass") %T>%
     utils::write.csv("result.csv", row.names = FALSE) %>%
     ggplot2::ggplot(ggplot2::aes(year, value,
                                  group = age,

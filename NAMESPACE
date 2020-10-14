@@ -2,6 +2,5 @@
 
 export("%>%")
 export("%T>%")
-export(metadata)
 importFrom(magrittr,"%>%")
 importFrom(magrittr,"%T>%")
