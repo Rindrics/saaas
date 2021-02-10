@@ -11,5 +11,5 @@ fcurrent_years <- function() {
 
 terminal_f_years <- function() {
   backgenerate_years(from   = metadata()$year - 2,
-                     length = 2)
+                     length = 8)
 }
